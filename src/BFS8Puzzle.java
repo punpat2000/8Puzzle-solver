@@ -95,6 +95,12 @@ public class BFS8Puzzle {
 		public String getString() {
 			return s;
 		}
+		public boolean isSolved() {
+			return isSolved(DEFAULT_SOLUTION);
+		}
+		public boolean isSolved(String sol) {
+			return s.equals(sol);
+		}
 	}
 	public interface FringeAbstract {
 		public void add(Node n) throws Exception;
@@ -204,7 +210,7 @@ public class BFS8Puzzle {
 				break;
 			}
 			Node front =  f.removeFront();
-			if(front.getState().getString().equals(DEFAULT_SOLUTION)) {
+			if(front.getState().isSolved()) {
 				System.out.println(front.getAnswer());
 				break;
 			}
@@ -223,7 +229,7 @@ public class BFS8Puzzle {
 				break;
 			}
 			Node front =  f.removeFront();
-			if(front.getState().getString().equals("123456780")) {
+			if(front.getState().isSolved()) {
 				System.out.println(front.getAnswer());
 				break;
 			}
